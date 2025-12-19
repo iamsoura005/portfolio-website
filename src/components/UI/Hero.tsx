@@ -20,7 +20,7 @@ export default function Hero() {
         <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto pt-20 relative">
 
             {/* HUD Elements */}
-            <div className="absolute top-24 right-6 md:right-20 border border-terminal-green/30 p-4 bg-terminal-black/80 font-mono text-xs cyber-corner">
+            <div className="absolute top-20 right-4 md:top-24 md:right-20 border border-terminal-green/30 p-2 md:p-4 bg-terminal-black/80 font-mono text-[10px] md:text-xs cyber-corner scale-90 md:scale-100 origin-top-right z-30">
                 <div className="flex gap-4 mb-2">
                     <span className="text-terminal-dim">STATUS:</span>
                     <span className="animate-pulse">ONLINE</span>

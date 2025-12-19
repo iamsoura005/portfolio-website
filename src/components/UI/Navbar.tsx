@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
     { name: '/home', target: 'home' },
@@ -12,6 +13,7 @@ const navItems = [
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,11 +37,17 @@ export default function Navbar() {
             animate={{ y: 0 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
                 ? 'bg-black/50 backdrop-blur-xl border-terminal-green/30 py-4 shadow-[0_4px_30px_rgba(0,0,0,0.1)]'
-                : 'bg-transparent border-transparent py-6'
+                : 'bg-transparent border-transparent py-4'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 md:px-20 flex justify-center md:justify-end">
-                <ul className="flex flex-wrap justify-center gap-6 md:gap-8 font-mono text-xs md:text-sm">
+            <div className="max-w-7xl mx-auto px-6 md:px-20 flex justify-between items-center md:block">
+                {/* Mobile Logo/Brand (Optional, visible only on mobile if needed) */}
+                <div className="md:hidden text-terminal-green font-mono text-sm tracking-tighter">
+                    NEURAL_ENGINE_v20
+                </div>
+
+                {/* Desktop Menu */}
+                <ul className="hidden md:flex flex-wrap justify-end gap-8 font-mono text-sm">
                     {navItems.map((item) => (
                         <li key={item.name}>
                             <a
@@ -54,7 +62,43 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
+
+                {/* Mobile Hamburger */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="md:hidden text-terminal-green p-2 hover:bg-terminal-green/10 rounded"
+                >
+                    {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
+
+            {/* Mobile Menu Dropdown */}
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="md:hidden bg-black/95 border-b border-terminal-green/30 backdrop-blur-xl"
+                >
+                    <ul className="flex flex-col p-6 space-y-4 font-mono text-sm">
+                        {navItems.map((item) => (
+                            <li key={item.name}>
+                                <a
+                                    href={`#${item.target}`}
+                                    onClick={(e) => {
+                                        scrollToSection(item.target, e);
+                                        setIsOpen(false);
+                                    }}
+                                    className="block text-slate-400 hover:text-terminal-green transition-colors py-2 border-l-2 border-transparent hover:border-terminal-green pl-4"
+                                >
+                                    <span className="text-terminal-green mr-2">&gt;</span>
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </motion.div>
+            )}
         </motion.nav>
     );
 }
