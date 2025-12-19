@@ -23,8 +23,8 @@ export default function AboutSkills() {
 
                 <SectionHeader title="ABOUT_ME" />
 
-                <div className="grid md:grid-cols-2 gap-12">
-                    <div className="font-mono text-slate-400 space-y-4">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+                    <div className="font-mono text-slate-400 space-y-4 break-words text-sm md:text-base">
                         <p>
                             &gt; Pursuit: B.Tech in Computer Science (AI & ML).
                         </p>
@@ -36,34 +36,33 @@ export default function AboutSkills() {
                         </p>
                     </div>
 
-                    <div className="space-y-4">
-                        <div className="flex justify-between items-center border-b border-terminal-dark pb-2">
+                    <div className="space-y-4 w-full">
+                        <div className="flex justify-between items-center border-b border-terminal-dark pb-2 text-sm md:text-base">
                             <span className="text-terminal-green">CGPA_METRIC</span>
                             <span className="text-white">8.39 / 10.0</span>
                         </div>
-                        <div className="flex justify-between items-center border-b border-terminal-dark pb-2">
+                        <div className="flex justify-between items-center border-b border-terminal-dark pb-2 text-sm md:text-base">
                             <span className="text-terminal-green">SGPA_EPOCH</span>
                             <span className="text-white">8.99 / 10.0</span>
                         </div>
 
                         {/* Affiliations Terminal Block */}
-                        {/* Affiliations Terminal Block - Error Style */}
-                        <div className="mt-6 font-mono text-xs border border-red-500/50 p-4 bg-red-950/20 relative overflow-hidden group hover:border-red-500 transition-colors">
+                        <div className="mt-6 font-mono text-xs border border-red-500/50 p-4 bg-red-950/20 relative overflow-hidden group hover:border-red-500 transition-colors w-full break-all">
                             <div className="flex items-center gap-2 text-red-500 mb-3 border-b border-red-500/30 pb-2">
-                                <div className="w-2 h-2 bg-red-500 rounded-full animate-ping" />
-                                <span className="font-bold">CRITICAL_AFFILIATIONS_LOG</span>
+                                <div className="w-2 h-2 bg-red-500 rounded-full animate-ping shrink-0" />
+                                <span className="font-bold whitespace-nowrap">CRITICAL_AFFILIATIONS_LOG</span>
                             </div>
 
                             <div className="space-y-2 text-red-300">
-                                <div className="flex gap-2">
-                                    <span className="opacity-50">[ERROR_01]</span>
-                                    <span>DETECTED_ROLE:</span>
+                                <div className="flex flex-col sm:flex-row sm:gap-2">
+                                    <span className="opacity-50 min-w-fit">[ERROR_01]</span>
+                                    <span className="min-w-fit">DETECTED_ROLE:</span>
                                     <span className="text-white font-bold">"PR Lead"</span>
                                     <span className="text-red-400">@INNOFUSION</span>
                                 </div>
-                                <div className="flex gap-2">
-                                    <span className="opacity-50">[ERROR_02]</span>
-                                    <span>DETECTED_ROLE:</span>
+                                <div className="flex flex-col sm:flex-row sm:gap-2">
+                                    <span className="opacity-50 min-w-fit">[ERROR_02]</span>
+                                    <span className="min-w-fit">DETECTED_ROLE:</span>
                                     <span className="text-white font-bold">"Member"</span>
                                     <span className="text-red-400">@GDG_UEMK</span>
                                 </div>

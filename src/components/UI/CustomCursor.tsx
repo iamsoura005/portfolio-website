@@ -26,7 +26,7 @@ export default function CustomCursor() {
         <>
             {/* Main Cursor (Crosshair) */}
             <motion.div
-                className="fixed top-0 left-0 w-6 h-6 border-l border-t border-terminal-green pointer-events-none z-[100] mix-blend-screen"
+                className="hidden md:block fixed top-0 left-0 w-6 h-6 border-l border-t border-terminal-green pointer-events-none z-[100] mix-blend-screen"
                 animate={{
                     x: position.x - 3,
                     y: position.y - 3,
